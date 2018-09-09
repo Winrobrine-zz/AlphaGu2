@@ -62,6 +62,12 @@ namespace AlphaGu2.ViewModels
             AnswerCommand = new DelegateCommand(AnswerClick);
             GuessCommand = new DelegateCommand(GuessClick);
 
+            for (int i = 0; i <= _game.Length; i++)
+            {
+                Strikes.Add(i);
+                Balls.Add(i);
+            }
+
             Initialize();
         }
 
@@ -69,14 +75,6 @@ namespace AlphaGu2.ViewModels
         {
             ComputerLog.Clear();
             PlayerLog.Clear();
-            Strikes.Clear();
-            Balls.Clear();
-
-            for (int i = 0; i <= _game.Length; i++)
-            {
-                Strikes.Add(i);
-                Balls.Add(i);
-            }
 
             SelectedStrike = 0;
             SelectedBall = 0;
