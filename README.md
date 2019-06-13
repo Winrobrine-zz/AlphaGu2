@@ -1,5 +1,5 @@
 # AlphaGu2
-A Bulls and Cows Game with Computer that Newly developed
+A Bulls and Cows Game with Computer that Newly Developed
 
 ## Used Libraries
 * [MahApps.Metro](https://github.com/MahApps/MahApps.Metro)
