@@ -47,9 +47,10 @@ namespace AlphaGu2.ViewModels
 
         public string Number { get; private set; }
 
-        MainWindow _window;
+        readonly MainWindow _window;
+        readonly Random _random;
+
         Game _game;
-        Random _random;
 
         string _question;
 
@@ -213,7 +214,7 @@ namespace AlphaGu2.ViewModels
             if (await _window.GetCurrentDialogAsync<BaseMetroDialog>() != null)
                 return;
 
-            if (Turn == GameTurn.Player && Guess?.Length == _game.Length && Guess.All(e => "1234567890".Contains(e)))
+            if (Turn == GameTurn.Player && Guess?.Length == _game.Length && Guess.All(e => "1234567890".Contains(e)) && Guess.Distinct().Count() == 4)
             {
                 PlayerLog.Add(new History(Guess, _game.GetAnswer(Number, Guess)));
 

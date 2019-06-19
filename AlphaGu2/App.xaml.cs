@@ -1,14 +1,20 @@
-﻿using System.Windows;
+﻿using AlphaGu2.Views;
+using Prism.Ioc;
+using Prism.Unity;
+using System.Windows;
 
 namespace AlphaGu2
 {
-    public partial class App : Application
+    public partial class App : PrismApplication
     {
-        protected override void OnStartup(StartupEventArgs e)
+        protected override Window CreateShell()
         {
-            base.OnStartup(e);
+            return Container.Resolve<MainWindow>();
+        }
 
-            new Bootstrapper().Run();
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+
         }
     }
 }
